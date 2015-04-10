@@ -1,0 +1,8 @@
+var app = angular.module("Planner",["ngRoute"])
+  .config(["$routeProvider", function($routeProvider) {
+    $routeProvider
+      .when("/", {
+        templateUrl: "<%= asset_path('templates/index.html') %>"
+      })
+      .otherwise({redirectTo: "/"});
+  }])
