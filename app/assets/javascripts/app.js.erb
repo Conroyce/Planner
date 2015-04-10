@@ -2,7 +2,8 @@ var app = angular.module("Planner",["ngRoute"])
   .config(["$routeProvider", function($routeProvider) {
     $routeProvider
       .when("/", {
-        templateUrl: "<%= asset_path('templates/index.html') %>"
+        templateUrl: "<%= asset_path('templates/todo.html') %>",
+        controller: "TodoCtrl"
       })
       .otherwise({redirectTo: "/"});
   }])
