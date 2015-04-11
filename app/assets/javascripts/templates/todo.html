@@ -6,6 +6,9 @@
 </form>
 <p>{{data}}</p>
 <div ng-repeat="t in todos">
-  <p>{{t.task}}</p><input type="button" value="Delete" ng-click="deleteRequest(t.id)">
-  <p>{{t.date}}</p><input type="button" value="Edit">
+  <p>
+    {{t.task}} <input type="button" value="Delete" ng-click="deleteRequest(t.id)"><br>
+    {{t.date}} <br><input type="input" placeholder="New task" ng-model="data.newTask">
+               <input type="button" value="Edit" ng-click="edit_path(t.id)">
+  </p>
 </div>
