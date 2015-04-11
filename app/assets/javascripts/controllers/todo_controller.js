@@ -1,14 +1,15 @@
-app.controller("TodoCtrl", ["$scope", "$resource", "$http", function($scope, $resource, $http) {
+app.controller("TodoCtrl", ["$scope", "Task", function($scope, Task) {
 
-  var Task = $resource('/todos/:id', {id: '@id'});
   $scope.blah = Task.query();
-  $http.get("/todos").success(
-    function(data) {
-      console.log(data); 
-    });
 
   $scope.data = {};
   $scope.addRequest = function() {
-    $http.post("/todos", { task: $scope.data.task, date: $scope.data.date }).success(function(data) { console.log(data) });
+    var task = new Task({ task: $scope.data.task, date: $scope.data.date });
+    task.$save();
+    // $http.post("/todos", { task: $scope.data.task, date: $scope.data.date }).success(function(data) { console.log(data) });
   };
-}])
+
+  // $scope.deleteRequest = function() {
+  //   task.get({id:}).$delete();
+  // }
+}]);
