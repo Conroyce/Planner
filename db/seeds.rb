@@ -5,3 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+todos = Todo.create([{ task: 'Clean Room', date: '04/12/2015', user: 1}, {task: 'Make Dinner', date: '04/10/2015', user: 2}]);
