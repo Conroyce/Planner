@@ -6,4 +6,9 @@ app.controller("TodoCtrl", ["$scope", "$resource", "$http", function($scope, $re
     function(data) {
       console.log(data); 
     });
+
+  $scope.data = {};
+  $scope.addRequest = function() {
+    $http.post("/todos", { task: $scope.data.task, date: $scope.data.date }).success(function(data) { console.log(data) });
+  };
 }])

@@ -1,5 +1,11 @@
-  <h1>Hello From index</h1>
-  <div ng-repeat="b in blah">
-    <p>{{b.task}}</p>
-    <p>{{b.date}}</p>
-  </div>
+<h1>Hello From index</h1>
+<form class="add-todo">
+  <input type="text" ng-model="data.task" placeholder="Enter Request"><br>
+  Select Date: <input type="date" ng-model="data.date"><br>
+  <input type="submit" ng-click="addRequest()">
+</form>
+<p>{{data}}</p>
+<div ng-repeat="b in blah">
+  <p>{{b.task}}</p>
+  <p>{{b.date}}</p>
+</div>
