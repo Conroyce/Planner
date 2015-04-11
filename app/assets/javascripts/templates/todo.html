@@ -5,7 +5,7 @@
   <input type="submit" ng-click="addRequest()">
 </form>
 <p>{{data}}</p>
-<div ng-repeat="b in blah">
-  <p>{{b.task}}</p>
-  <p>{{b.date}}</p>
+<div ng-repeat="t in todos">
+  <p>{{t.task}}</p><input type="button" value="Delete" ng-click="deleteRequest(t.id)">
+  <p>{{t.date}}</p><input type="button" value="Edit">
 </div>
