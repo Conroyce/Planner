@@ -9,5 +9,9 @@ var app = angular.module("Planner",["ngRoute", "ngResource"])
         templateUrl: "<%= asset_path('templates/todo_edit.html') %>",
         controller: "TodoCtrl"
       })
+      .when("/complete", {
+        templateUrl: "<%= asset_path('templates/complete.html') %>",
+        controller: "TodoCtrl"
+      })
       .otherwise({redirectTo: "/todos"});
-  }])
+  }]);

@@ -1,4 +1,5 @@
-<h1>Hello From index</h1>
+<a href="" ng-click="todo_path()">Unfulfilled Tasks</a>
+<a href="" ng-click="complete_path()">Completed Tasks</a>
 <form class="add-todo">
   <input type="text" ng-model="data.task" placeholder="Enter Request"><br>
   Select Date: <input type="date" ng-model="data.date"><br>
@@ -10,5 +11,6 @@
     {{t.task}} <input type="button" value="Delete" ng-click="deleteRequest(t.id)"><br>
     {{t.date}} <br><input type="input" placeholder="New task" ng-model="data.newTask">
                <input type="button" value="Edit" ng-click="edit_path(t.id)">
+               <input type="button" value="Task Complete!" ng-click="completeTask(t.id)">
   </p>
 </div>

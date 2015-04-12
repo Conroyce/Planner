@@ -30,6 +30,6 @@ class TodosController < ApplicationController
   end
   
   def todo_params
-    @todo = params.require(:todo).permit(:task,:date,:user)
+    @todo = params.require(:todo).permit(:task,:date,:user,:completed)
   end  
 end

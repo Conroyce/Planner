@@ -1,11 +1,31 @@
 app.controller("TodoCtrl", ["$scope", "Task", "$location", "$routeParams", function($scope, Task, $location, $routeParams) {
 
-  $scope.todos = Task.query();
   $scope.data = {};
+  Task.query(function(data) {
+    $scope.todos = [];
+    $scope.completed = [];
+
+    data.forEach(function(v) {
+      if (v.completed) {
+        $scope.completed.push(v);
+      } else {
+        $scope.todos.push(v);
+      }
+    });
+
+  });
 
   $scope.edit_path = function(id) {
     $location.path("/todos/"+id+"/edit");
   };
+
+  $scope.complete_path = function() {
+    $location.path("/complete");
+  }
+
+  $scope.todo_path = function() {
+    $location.path("/todos");
+  }
 
   $scope.addRequest = function() {
     var task = new Task({ task: $scope.data.task, date: $scope.data.date });
@@ -30,9 +50,16 @@ app.controller("TodoCtrl", ["$scope", "Task", "$location", "$routeParams", funct
       } else if(D.newDate) {
         data.date = D.newDate;
       }
-      
+
       data.$update();
     });  
   };
+
+  $scope.completeTask = function(id) {
+    Task.get({id:id}, function(data) {
+      data.completed = true;
+      data.$update();
+    });
+  }
   
 }]);
